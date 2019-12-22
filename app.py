@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[4]:
 
 
 import dash
@@ -9,10 +9,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 import pandas as pd
-import numpy as np
 
 
-# In[5]:
+# In[ ]:
 
 
 #Step 1: Upload and clean data
@@ -21,7 +20,7 @@ df=pd.read_csv('nama_10_gdp_1_Data.csv')
 df['Indicators']=df['NA_ITEM'].astype(str) + ' ('+df['UNIT'].astype(str)+')'
 def value(i):
     if i==':':
-        return np.nan
+        return 'NaN'
     else:
         i=i.replace('.', '')
         new=i.replace(',','.')
@@ -44,7 +43,7 @@ app.layout = html.Div(style={'backgroundColor': '#f2eaec'}, children=[
         
         html.Div([   
             html.H1('Final Project'),
-            html.P('Dashboard for GDP and main components (output, expenditure and income)'),
+            html.H2('Dashboard for GDP and main components (output, expenditure and income)'),
             html.P('Student: Natalia Korchagina'),
             html.Br(),
             html.H4('Exercise 1: Scatterplot with two DropDown boxes for the different indicators')
